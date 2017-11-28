@@ -1,30 +1,29 @@
 #! python3.6
 # -*- coding: utf-8 -*-
-import re
 from pathlib import Path
+import re
 
 from appdirs import site_data_dir
 
-__version__ = '1.0.0'
+__version__ = '1.0.1'
 
 pattern_version = re.compile(r'\D*(?P<version>(\d+)\.(\d+)\.(\d+)\.(\d+))\D*')
 
 
-def get_version_as_number(version: str):
+def get_version_as_number(version: str) -> int:
     result = 0
+
     m = 10000
+
     match = pattern_version.match(version)
-    if match is not None:
-        result = \
-            int(match.group(2)) * m ** 3 + \
-            int(match.group(3)) * m ** 2 + \
-            int(match.group(4)) * m + \
-            int(match.group(5))
+    if match:
+        result = int(match.group(2)) * m ** 3 + int(match.group(3)) * m ** 2 + int(match.group(4)) * m + \
+                 int(match.group(5))
 
     return result
 
 
-def get_last_exe_1c():
+def get_last_1c_exe_file_path() -> Path:
     result = None
 
     estart_file_path = Path(site_data_dir('1CEStart', '1C')) / '1CEStart.cfg'
@@ -57,14 +56,14 @@ def get_last_exe_1c():
 
 
 class Error(Exception):
-    def __init__(self, value=None):
+    def __init__(self, value=None) -> None:
         super(Error, self).__init__()
         self.value = value
 
-    def __str__(self):
+    def __str__(self) -> str:
         return repr(self.value)
 
 
 class SettingsError(Error):
-    def __init__(self, message: str):
+    def __init__(self, message: str) -> None:
         super().__init__('{}'.format(message))
