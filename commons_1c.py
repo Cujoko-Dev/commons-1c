@@ -4,7 +4,7 @@ import re
 
 from appdirs import site_data_dir
 
-__version__ = '1.1.0'
+__version__ = '1.1.1'
 
 pattern_version = re.compile(r'\D*(?P<version>(\d+)\.(\d+)\.(\d+)\.(\d+))\D*')
 
@@ -33,7 +33,7 @@ def get_last_1c_exe_file_path() -> Path:
                 key_and_value = line.split('=')
                 if key_and_value[0] == 'InstalledLocation':
                     value = '='.join(key_and_value[1:])
-                    installed_location_paths.append(Path(value))
+                    installed_location_paths.append(Path(value.rstrip('\r\n')))
 
         platform_versions = []
         for installed_location_path in installed_location_paths:
