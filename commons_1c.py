@@ -1,11 +1,10 @@
-#! python3.6
 # -*- coding: utf-8 -*-
 from pathlib import Path
 import re
 
 from appdirs import site_data_dir
 
-__version__ = '1.0.1'
+__version__ = '1.1.0'
 
 pattern_version = re.compile(r'\D*(?P<version>(\d+)\.(\d+)\.(\d+)\.(\d+))\D*')
 
@@ -26,44 +25,30 @@ def get_version_as_number(version: str) -> int:
 def get_last_1c_exe_file_path() -> Path:
     result = None
 
-    estart_file_path = Path(site_data_dir('1CEStart', '1C')) / '1CEStart.cfg'
-    installed_location_paths = []
-    if estart_file_path.is_file():
-        with estart_file_path.open(encoding='utf-16') as estart_file:
-            for line in estart_file.readlines():
+    config_file_path = Path(site_data_dir('1CEStart', '1C')) / '1CEStart.cfg'
+    if config_file_path.is_file():
+        installed_location_paths = []
+        with config_file_path.open(encoding='utf-16') as config_file:
+            for line in config_file.readlines():
                 key_and_value = line.split('=')
                 if key_and_value[0] == 'InstalledLocation':
                     value = '='.join(key_and_value[1:])
-                    installed_location_paths.append(Path(value.rstrip()))
+                    installed_location_paths.append(Path(value))
 
         platform_versions = []
         for installed_location_path in installed_location_paths:
             if installed_location_path.is_dir():
-                for p1 in installed_location_path.iterdir():
-                    version_as_number = get_version_as_number(str(p1.name))
-                    if version_as_number != 0:
-                        p2 = p1 / 'bin' / '1cv8.exe'
-                        if p2.is_file():
-                            platform_versions.append((version_as_number, p2))
+                for version_dir_path in installed_location_path.iterdir():
+                    version_as_number = get_version_as_number(str(version_dir_path.name))
+                    if version_as_number:
+                        exe_file_path = version_dir_path / 'bin' / '1cv8.exe'
+                        if exe_file_path.is_file():
+                            platform_versions.append((version_as_number, exe_file_path))
 
         platform_versions_reversed = sorted(platform_versions, key=lambda x: x[0], reverse=True)
         if platform_versions_reversed:
             result = platform_versions_reversed[0][1]
     else:
-        raise SettingsError('1CEStart.cfg file does not exist!')
+        raise Exception('1CEStart.cfg file does not exist!')
 
     return result
-
-
-class Error(Exception):
-    def __init__(self, value=None) -> None:
-        super(Error, self).__init__()
-        self.value = value
-
-    def __str__(self) -> str:
-        return repr(self.value)
-
-
-class SettingsError(Error):
-    def __init__(self, message: str) -> None:
-        super().__init__('{}'.format(message))
