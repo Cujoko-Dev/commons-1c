@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-from pathlib import Path
 import re
+from pathlib import Path
 
 from appdirs import site_data_dir
 
-__version__ = '1.1.1'
+__version__ = '1.1.2'
 
 pattern_version = re.compile(r'\D*(?P<version>(\d+)\.(\d+)\.(\d+)\.(\d+))\D*')
 

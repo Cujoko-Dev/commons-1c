@@ -1,4 +1,3 @@
-#! python3.6
 # -*- coding: utf-8 -*-
 from setuptools import setup
 
@@ -27,6 +26,7 @@ setup(
 
         'Natural Language :: Russian',
 
+        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
 
         'Topic :: Software Development',
