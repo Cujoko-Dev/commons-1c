@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-import re
 from pathlib import Path
+import re
 
 from appdirs import site_data_dir
 
-__version__ = '1.1.2'
+__version__ = '1.1.3'
 
 pattern_version = re.compile(r'\D*(?P<version>(\d+)\.(\d+)\.(\d+)\.(\d+))\D*')
 
@@ -16,8 +16,8 @@ def get_version_as_number(version: str) -> int:
 
     match = pattern_version.match(version)
     if match:
-        result = int(match.group(2)) * m ** 3 + int(match.group(3)) * m ** 2 + int(match.group(4)) * m + \
-                 int(match.group(5))
+        result = \
+            int(match.group(2)) * m ** 3 + int(match.group(3)) * m ** 2 + int(match.group(4)) * m + int(match.group(5))
 
     return result
 
