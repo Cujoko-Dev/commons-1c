@@ -25,4 +25,4 @@ class MainTestClass(unittest.TestCase):
     def test_get_last_1c_exe_file_path(self):
         path = get_last_1c_exe_file_path()
         self.assertIsInstance(path, Path)
-        self.assertRegex(str(path), r'c:\\Program Files \(x86\)\\1cv8\\\d+\.\d+\.\d+\.\d+\\bin\\1cv8\.exe')
+        self.assertRegex(str(path), r'(?i)c:\\Program Files \(x86\)\\1cv8\\\d+\.\d+\.\d+\.\d+\\bin\\1cv8\.exe')
