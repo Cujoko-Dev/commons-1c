@@ -58,10 +58,14 @@ def get_version_as_parts(version: str) -> List[str]:
     return result
 
 
-def get_last_1c_exe_file_path() -> Path:
+def get_last_1c_exe_file_path(**kwargs) -> Path:
     result = None
 
-    config_file_path = Path(site_data_dir('1CEStart', '1C')) / '1CEStart.cfg'
+    if 'config_file' in kwargs:
+        config_file_path = Path(kwargs['config_file'])
+    else:
+        config_file_path = Path(site_data_dir('1CEStart', '1C')) / '1CEStart.cfg'
+
     if config_file_path.is_file():
         installed_location_paths = []
         with config_file_path.open(encoding='utf-16') as config_file:
