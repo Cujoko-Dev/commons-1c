@@ -178,3 +178,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+### *.py,cover template
+# Unit test / coverage reports
+*.py,cover
