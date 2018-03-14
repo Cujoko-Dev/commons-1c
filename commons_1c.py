@@ -5,7 +5,7 @@ from typing import List
 
 from appdirs import site_data_dir
 
-__version__ = '1.2.0'
+__version__ = '1.3.0'
 
 pattern_version = re.compile(r'\D*(?P<version>(?:(\d+)|)(?:\.(\d+)|)(?:\.(\d+)|)(?:\.(\d+)|))\D*')
 

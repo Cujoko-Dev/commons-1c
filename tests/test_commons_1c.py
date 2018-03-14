@@ -23,10 +23,10 @@ class MainTestClass(unittest.TestCase):
         self.assertEqual(get_version_as_parts('1.1.1.1'), ['1', '1', '1', '1'])
 
     def test_get_last_1c_exe_file_path_1(self):
-        with self.assertRaisesRegex(Exception, r'1CEStart.cfg file does not exist!'):
-            get_last_1c_exe_file_path(config_file='test.cfg')
-
-    def test_get_last_1c_exe_file_path_2(self):
         path = get_last_1c_exe_file_path()
         self.assertIsInstance(path, Path)
         self.assertRegex(str(path), r'(?i)c:\\Program Files \(x86\)\\1cv8\\\d+\.\d+\.\d+\.\d+\\bin\\1cv8\.exe')
+
+    def test_get_last_1c_exe_file_path_2(self):
+        with self.assertRaisesRegex(Exception, r'1CEStart.cfg file does not exist!'):
+            get_last_1c_exe_file_path(config_file='bla.cfg')
