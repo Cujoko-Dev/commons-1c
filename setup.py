@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from setuptools import setup
+from setuptools import find_packages, setup
 
 import commons_1c
 
@@ -7,10 +7,10 @@ setup(
     name='commons_1c',
     version=commons_1c.__version__,
     description='Commons for 1C:Enterprise',
-    url='https://github.com/Cujoko/commons-1c',
     author='Cujoko',
     author_email='cujoko@gmail.com',
-    license='MIT',
+    url='https://github.com/Cujoko/commons-1c',
+    packages=find_packages(),
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
@@ -22,5 +22,5 @@ setup(
         'Topic :: Utilities'
     ],
     keywords='1c commons',
-    py_modules=['commons_1c']
+    license = 'MIT'
 )
