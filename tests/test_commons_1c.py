@@ -2,7 +2,8 @@
 from pathlib import Path
 import unittest
 
-from commons_1c import get_last_1c_exe_file_path, get_version_as_number, get_version_as_parts
+from commons_1c.platform_ import get_last_1c_exe_file_path
+from commons_1c.version import get_version_as_number, get_version_as_parts
 
 
 class MainTestClass(unittest.TestCase):
