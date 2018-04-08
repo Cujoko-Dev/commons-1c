@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 import re
-from typing import List
 
 pattern_version = re.compile(r'\D*(?P<version>(?:(\d+)|)(?:\.(\d+)|)(?:\.(\d+)|)(?:\.(\d+)|))\D*')
 
 
-def get_version_as_number(version: str) -> int:
+def get_version_as_number(version):
     result = 0
     m = 10000
     match = pattern_version.match(version)
@@ -22,7 +21,7 @@ def get_version_as_number(version: str) -> int:
     return result
 
 
-def get_version_as_parts(version: str) -> List[str]:
+def get_version_as_parts(version):
     result = []
     match = pattern_version.match(version)
     if match is not None:

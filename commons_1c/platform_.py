@@ -6,7 +6,7 @@ from appdirs import site_data_dir
 from version import get_version_as_number
 
 
-def get_last_1c_exe_file_path(**kwargs) -> Path:
+def get_last_1c_exe_file_path(**kwargs):
     result = None
     if 'config_file' in kwargs:
         config_file_path = Path(kwargs['config_file'])
