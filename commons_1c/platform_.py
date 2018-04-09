@@ -3,7 +3,7 @@ from pathlib import Path
 
 from appdirs import site_data_dir
 
-from version import get_version_as_number
+from commons_1c.version import get_version_as_number
 
 
 def get_last_1c_exe_file_path(**kwargs):
