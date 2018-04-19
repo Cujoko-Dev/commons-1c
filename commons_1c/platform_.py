@@ -33,5 +33,5 @@ def get_last_1c_exe_file_path(**kwargs):
         if platform_versions_reversed:
             result = platform_versions_reversed[0][1]
     else:
-        raise Exception('1CEStart.cfg file does not exist!')
+        raise FileNotFoundError('1CEStart.cfg file does not exist')
     return result

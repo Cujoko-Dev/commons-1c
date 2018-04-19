@@ -29,5 +29,5 @@ class MainTestClass(unittest.TestCase):
         self.assertRegex(str(path), r'(?i)c:\\Program Files \(x86\)\\1cv8\\\d+\.\d+\.\d+\.\d+\\bin\\1cv8\.exe')
 
     def test_get_last_1c_exe_file_path_2(self):
-        with self.assertRaisesRegex(Exception, r'1CEStart.cfg file does not exist!'):
+        with self.assertRaisesRegex(Exception, r'1CEStart.cfg file does not exist'):
             get_last_1c_exe_file_path(config_file='bla.cfg')
