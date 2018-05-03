@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
-from pathlib import Path
+from __future__ import unicode_literals
+
 import unittest
+
+from six import assertRaisesRegex, assertRegex
 
 from commons_1c.platform_ import get_last_1c_exe_file_path
 from commons_1c.version import get_version_as_number, get_version_as_parts
+from compat import Path
 
 
 class MainTestClass(unittest.TestCase):
@@ -26,8 +30,8 @@ class MainTestClass(unittest.TestCase):
     def test_get_last_1c_exe_file_path_1(self):
         path = get_last_1c_exe_file_path()
         self.assertIsInstance(path, Path)
-        self.assertRegex(str(path), r'(?i)c:\\Program Files \(x86\)\\1cv8\\\d+\.\d+\.\d+\.\d+\\bin\\1cv8\.exe')
+        assertRegex(self, str(path), r'(?i)c:\\Program Files \(x86\)\\1cv8\\\d+\.\d+\.\d+\.\d+\\bin\\1cv8\.exe')
 
     def test_get_last_1c_exe_file_path_2(self):
-        with self.assertRaisesRegex(Exception, r'1CEStart.cfg file does not exist'):
+        with assertRaisesRegex(self, Exception, r'1CEStart.cfg file does not exist'):
             get_last_1c_exe_file_path(config_file='bla.cfg')
