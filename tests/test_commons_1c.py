@@ -5,7 +5,7 @@ import unittest
 
 from six import assertRaisesRegex, assertRegex
 
-from commons_1c.compat import Path
+from commons.compat import Path
 from commons_1c.platform_ import get_last_1c_exe_file_path
 from commons_1c.version import get_version_as_number, get_version_as_parts
 

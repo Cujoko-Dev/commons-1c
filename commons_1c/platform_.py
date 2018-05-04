@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from appdirs import site_data_dir
 
-from commons_1c.compat import Path
+from commons.compat import Path
 from commons_1c.version import get_version_as_number
 
 
