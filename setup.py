@@ -25,5 +25,13 @@ setup(
         'Topic :: Utilities'
     ],
     keywords='1c commons',
-    license='MIT'
+    license='MIT',
+    dependency_links=[
+        'https://gitlab.com/Cujoko/commons/-/archive/master/commons-master.tar.gz#egg=commons-1.5.0'
+    ],
+    install_requires=[
+        'appdirs>=1.4.3',
+        'commons>=1.5.0',
+        'six>=1.11.0'
+    ]
 )
