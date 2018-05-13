@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import errno
+
 from appdirs import site_data_dir
 
 from commons.compat import Path
@@ -34,5 +36,5 @@ def get_last_1c_exe_file_path(**kwargs):
         if platform_versions_reversed:
             result = platform_versions_reversed[0][1]
     else:
-        raise FileNotFoundError('1CEStart.cfg file does not exist')
+        raise IOError(errno.ENOENT, '1CEStart.cfg file does not exist')
     return result
