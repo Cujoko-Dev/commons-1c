@@ -30,6 +30,6 @@ setup(
     install_requires=[
         'appdirs>=1.4.3',
         'commons>=1.5.0',
-        'six>=1.11.0'
+        'six==1.11.0'
     ]
 )
