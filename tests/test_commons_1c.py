@@ -5,8 +5,7 @@ import unittest
 
 from six import assertRaisesRegex, assertRegex
 
-from commons.compat import Path
-from commons_1c.platform_ import get_last_1c_exe_file_path
+from commons_1c.platform_ import get_last_1c_exe_file_fullname
 from commons_1c.version import get_version_as_number, get_version_as_parts
 
 
@@ -27,11 +26,11 @@ class MainTestClass(unittest.TestCase):
         self.assertEqual(get_version_as_parts('1.1.1'), ['1', '1', '1'])
         self.assertEqual(get_version_as_parts('1.1.1.1'), ['1', '1', '1', '1'])
 
-    def test_get_last_1c_exe_file_path_1(self):
-        path = get_last_1c_exe_file_path()
-        self.assertIsInstance(path, Path)
-        assertRegex(self, str(path), r'(?i)c:\\Program Files \(x86\)\\1cv8\\\d+\.\d+\.\d+\.\d+\\bin\\1cv8\.exe')
+    def test_get_last_1c_exe_file_fullname_1(self):
+        file_fullname = get_last_1c_exe_file_fullname()
+        self.assertIsInstance(file_fullname, str)
+        assertRegex(self, file_fullname, r'(?i)c:\\Program Files \(x86\)\\1cv8\\\d+\.\d+\.\d+\.\d+\\bin\\1cv8\.exe')
 
-    def test_get_last_1c_exe_file_path_2(self):
+    def test_get_last_1c_exe_file_fullname_2(self):
         with assertRaisesRegex(self, Exception, r'1CEStart.cfg file does not exist'):
-            get_last_1c_exe_file_path(config_file='bla.cfg')
+            get_last_1c_exe_file_fullname(config_file='bla.cfg')
