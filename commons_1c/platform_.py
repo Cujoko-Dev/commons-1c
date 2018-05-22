@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
 
+import codecs
 import errno
 import os
 
@@ -18,7 +19,7 @@ def get_last_1c_exe_file_fullname(**kwargs):
         config_file_fullname = os.path.join(site_data_dir('1CEStart', '1C'), '1CEStart.cfg')
     if os.path.isfile(config_file_fullname):
         installed_location_fullnames = []
-        with open(config_file_fullname) as config_file:
+        with codecs.open(config_file_fullname, encoding='utf-16') as config_file:
             for line in config_file.readlines():
                 # fixme Наверное, неправильная работа с кодировкой
                 key_and_value = line.decode('utf-16').split('=')
