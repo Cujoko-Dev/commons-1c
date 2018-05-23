@@ -21,8 +21,7 @@ def get_last_1c_exe_file_fullname(**kwargs):
         installed_location_fullnames = []
         with codecs.open(config_file_fullname, encoding='utf-16') as config_file:
             for line in config_file.readlines():
-                # fixme Наверное, неправильная работа с кодировкой
-                key_and_value = line.decode('utf-16').split('=')
+                key_and_value = line.split('=')
                 if key_and_value[0] == 'InstalledLocation':
                     value = '='.join(key_and_value[1:])
                     installed_location_fullnames.append(value.rstrip('\r\n'))
