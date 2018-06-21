@@ -3,6 +3,8 @@ from __future__ import absolute_import, unicode_literals
 
 import re
 
+from commons.compat import long
+
 pattern_version = re.compile(r'\D*(?P<version>(?:(\d+)|)(?:\.(\d+)|)(?:\.(\d+)|)(?:\.(\d+)|))\D*')
 
 
@@ -19,7 +21,7 @@ def get_version_as_number(version):
         c = '0' if c is None else c
         d = match.group(5)
         d = '0' if d is None else d
-        result = int(a) * m ** 3 + int(b) * m ** 2 + int(c) * m + int(d)
+        result = long(a) * m ** 3 + long(b) * m ** 2 + long(c) * m + long(d)
     return result
 
 
