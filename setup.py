@@ -27,12 +27,9 @@ setup(
     ],
     keywords='1c commons',
     license='MIT',
-    dependency_links=[
-        'https://gitlab.com/Cujoko/commons/-/archive/master/commons-master.tar.gz#egg=commons-2.0.0'
-    ],
     install_requires=[
         'appdirs>=1.4.3',
-        'commons>=2.0.0',
+        'commons>=2.0.0 @ https://gitlab.com/Cujoko/commons/-/archive/master/commons-master.tar.gz#egg=commons-2.1.0',
         'six>=1.11.0'
     ]
 )
