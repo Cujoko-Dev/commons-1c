@@ -11,7 +11,7 @@ from commons_1c.version import get_version_as_number
 
 
 def get_last_1c_exe_file_fullname(**kwargs):
-    result = None
+    result = ''
     if 'config_file' in kwargs:
         # todo Может быть относительный путь
         config_file_fullname = kwargs['config_file']
