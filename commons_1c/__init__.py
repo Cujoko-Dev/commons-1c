@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
 
-__version__ = '2.0.3'
+# noinspection PyUnresolvedReferences
+from commons_1c.__about__ import __version__
