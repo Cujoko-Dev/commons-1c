@@ -36,7 +36,7 @@ setup(
     license='MIT',
     install_requires=[
         'appdirs>=1.4.3',
-        'commons @ https://gitlab.com/Cujoko/commons/-/archive/master/commons-master.tar.gz#egg=commons-2.1.0',
+        'commons @ https://gitlab.com/Cujoko/commons/-/archive/master/commons-master.tar.gz',
         'six>=1.11.0'
     ]
 )
