@@ -9,7 +9,7 @@
       <excludeFolder url="file://$MODULE_DIR$/commons_1c.egg-info" />
       <excludeFolder url="file://$MODULE_DIR$/dist" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 2.7 (commons-1c)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.7 (commons-1c)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="commons" />
   </component>

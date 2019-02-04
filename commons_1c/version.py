@@ -1,17 +1,15 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import, unicode_literals
+from typing import List
 
 import re
-
-from commons.compat import long
 
 pattern_version = re.compile(r'\D*(?P<version>(?:(\d+)|)(?:\.(\d+)|)(?:\.(\d+)|)(?:\.(\d+)|))\D*')
 
 
-def get_version_as_number(version):
+def get_version_as_number(version: str) -> int:
     result = 0
     m = 10000
-    match = pattern_version.match(version)
+    match = pattern_version.match(version)  # todo
     if match is not None:
         a = match.group(2)
         a = '0' if a is None else a
@@ -21,13 +19,13 @@ def get_version_as_number(version):
         c = '0' if c is None else c
         d = match.group(5)
         d = '0' if d is None else d
-        result = long(a) * m ** 3 + long(b) * m ** 2 + long(c) * m + long(d)
+        result = int(a) * m ** 3 + int(b) * m ** 2 + int(c) * m + int(d)
     return result
 
 
-def get_version_as_parts(version):
+def get_version_as_parts(version: str) -> List[str]:
     result = []
-    match = pattern_version.match(version)
+    match = pattern_version.match(version)  # todo
     if match is not None:
         a = match.group(2)
         if a is not None:
