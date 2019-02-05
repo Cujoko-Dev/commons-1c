@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
-import errno
 import os
 from pathlib import Path
-from typing import List, Tuple
 
 from appdirs import site_data_dir
 
@@ -24,7 +22,7 @@ def get_last_1c_exe_file_fullpath(**kwargs) -> Path:
                 if key_and_value[0] == 'InstalledLocation':
                     value = '='.join(key_and_value[1:])
                     installed_location_fullpaths.append(Path(value.rstrip('\r\n')))
-        platform_versions: List[Tuple[int, Path]] = []
+        platform_versions = []
         for installed_location_fullpath in installed_location_fullpaths:
             if installed_location_fullpath.is_dir():
                 for version_dir_shortname in os.listdir(installed_location_fullpath):  # todo
@@ -34,9 +32,9 @@ def get_last_1c_exe_file_fullpath(**kwargs) -> Path:
                         exe_file_fullpath = Path(version_dir_fullpath, 'bin', '1cv8.exe')
                         if exe_file_fullpath.is_file():
                             platform_versions.append((version_as_number, exe_file_fullpath))
-        platform_versions_reversed: List[Tuple[int, Path]] = sorted(platform_versions, key=lambda x: x[0], reverse=True)
+        platform_versions_reversed = sorted(platform_versions, key=lambda x: x[0], reverse=True)
         if platform_versions_reversed:
             result = platform_versions_reversed[0][1]
     else:
-        raise IOError(errno.ENOENT, '1CEStart.cfg file does not exist')
+        raise FileExistsError('1CEStart.cfg file does not exist')
     return result
