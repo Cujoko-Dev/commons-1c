@@ -1,19 +1,17 @@
 # -*- coding: utf-8 -*-
-import os
 from pathlib import Path
 
 from appdirs import site_data_dir
 
+from commons.settings import get_path_attribute
 from commons_1c.version import get_version_as_number
 
 
 def get_last_1c_exe_file_fullpath(**kwargs) -> Path:
     result = None
-    if 'config_file_path' in kwargs:
-        # todo Может быть относительный путь
-        config_file_fullpath = Path(kwargs['config_file_path'])
-    else:
-        config_file_fullpath = Path(site_data_dir('1CEStart', '1C'), '1CEStart.cfg')
+    config_file_fullpath = get_path_attribute(
+        kwargs, 'config_file_path', default_path=Path(site_data_dir('1CEStart', '1C'), '1CEStart.cfg'), is_dir=False,
+        check_if_exists=False)
     if config_file_fullpath.is_file():
         installed_location_fullpaths = []
         with config_file_fullpath.open(encoding='utf-16') as config_file:
@@ -25,9 +23,8 @@ def get_last_1c_exe_file_fullpath(**kwargs) -> Path:
         platform_versions = []
         for installed_location_fullpath in installed_location_fullpaths:
             if installed_location_fullpath.is_dir():
-                for version_dir_shortname in os.listdir(installed_location_fullpath):  # todo
-                    version_dir_fullpath = Path(installed_location_fullpath, version_dir_shortname)
-                    version_as_number = get_version_as_number(version_dir_shortname)
+                for version_dir_fullpath in installed_location_fullpath.rglob('*'):  # todo
+                    version_as_number = get_version_as_number(version_dir_fullpath.name)
                     if version_as_number:
                         exe_file_fullpath = Path(version_dir_fullpath, 'bin', '1cv8.exe')
                         if exe_file_fullpath.is_file():

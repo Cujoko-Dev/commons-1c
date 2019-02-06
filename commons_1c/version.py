@@ -9,7 +9,7 @@ pattern_version = re.compile(r'\D*(?P<version>(?:(\d+)|)(?:\.(\d+)|)(?:\.(\d+)|)
 def get_version_as_number(version: str) -> int:
     result = 0
     m = 10000
-    match = pattern_version.match(version)  # todo
+    match = pattern_version.match(version)
     if match is not None:
         a = match.group(2)
         a = '0' if a is None else a
@@ -25,7 +25,7 @@ def get_version_as_number(version: str) -> int:
 
 def get_version_as_parts(version: str) -> List[str]:
     result = []
-    match = pattern_version.match(version)  # todo
+    match = pattern_version.match(version)
     if match is not None:
         a = match.group(2)
         if a is not None:
