@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from pathlib import Path
 
-from setuptools import find_packages, setup
+from setuptools import setup
 
 here = Path(__file__).parent
 
@@ -10,13 +10,13 @@ with Path(here, 'commons_1c', '__about__.py').open() as f:
     exec(f.read(), about)
 
 setup(
-    name='commons_1c',
+    name='commons-1c',
     version=about['__version__'],
     description='Commons for 1C:Enterprise',
     author='Cujoko',
     author_email='cujoko@gmail.com',
-    url='https://gitlab.com/Cujoko/commons-1c',
-    packages=find_packages(),
+    url='https://github.com/Cujoko/commons-1c',
+    packages=['commons_1c'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
@@ -30,6 +30,6 @@ setup(
     license='MIT',
     install_requires=[
         'appdirs>=1.4.3',
-        'commons @ https://gitlab.com/Cujoko/commons/-/archive/master/commons-master.tar.gz'
+        'cjk-commons>=3.3.0'
     ]
 )

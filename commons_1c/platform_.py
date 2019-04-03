@@ -3,7 +3,7 @@ from pathlib import Path
 
 from appdirs import site_data_dir
 
-from commons.settings import get_path_attribute
+from cjk_commons.settings import get_path_attribute
 from commons_1c.version import get_version_as_number
 
 
