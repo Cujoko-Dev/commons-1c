@@ -1,12 +1,10 @@
 [tool.poetry]
 name = "commons-1c"
-version = "3.1.1"
+version = "3.1.2"
 description = "Commons for 1C:Enterprise"
 authors = ["Cujoko <cujoko@gmail.com>"]
 license = "MIT"
-homepage = "https://github.com/Cujoko/commons-1c"
 repository = "https://github.com/Cujoko/commons-1c"
-documentation = "https://github.com/Cujoko/commons-1c"
 keywords = ["1c", "commons"]
 classifiers=[
     "Development Status :: 4 - Beta",
