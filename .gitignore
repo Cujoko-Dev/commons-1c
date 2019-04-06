@@ -181,3 +181,6 @@ $RECYCLE.BIN/
 ### *.py,cover template
 # Unit test / coverage reports
 *.py,cover
+
+### Poetry template
+poetry.lock
