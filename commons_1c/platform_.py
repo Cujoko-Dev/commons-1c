@@ -19,7 +19,7 @@ def get_last_1c_exe_file_fullpath(**kwargs) -> Path:
                 key_and_value = line.split('=')
                 if key_and_value[0] == 'InstalledLocation':
                     value = '='.join(key_and_value[1:])
-                    installed_location_fullpaths.append(Path(value.rstrip('\r\n')))
+                    installed_location_fullpaths.append(Path(value.rstrip('\n')))
         platform_versions = []
         for installed_location_fullpath in installed_location_fullpaths:
             if installed_location_fullpath.is_dir():
