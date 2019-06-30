@@ -7,6 +7,8 @@ from loguru import logger
 from cjk_commons.settings import get_path_attribute
 from commons_1c.version import get_version_as_number
 
+logger.disable(__name__)
+
 
 def get_last_1c_exe_file_fullpath(**kwargs) -> Path:
     result = None
@@ -36,6 +38,3 @@ def get_last_1c_exe_file_fullpath(**kwargs) -> Path:
     else:
         raise FileExistsError('1CEStart.cfg file does not exist')
     return result
-
-
-logger.disable(__name__)
