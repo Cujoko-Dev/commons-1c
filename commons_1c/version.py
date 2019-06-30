@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from typing import List
 
+from loguru import logger
 import re
 
 pattern_version = re.compile(r'\D*(?P<version>(?:(\d+)|)(?:\.(\d+)|)(?:\.(\d+)|)(?:\.(\d+)|))\D*')
@@ -40,3 +41,6 @@ def get_version_as_parts(version: str) -> List[str]:
         if d is not None:
             result.append(d)
     return result
+
+
+logger.disable(__name__)
