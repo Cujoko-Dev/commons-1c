@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "commons-1c"
-version = "3.3.2"
+version = "3.3.3"
 description = "Commons for 1C:Enterprise"
 authors = ["Cujoko <cujoko@gmail.com>"]
 license = "MIT"
@@ -20,7 +20,7 @@ classifiers=[
 python = "^3.7"
 appdirs = "^1.4"
 cjk-commons = "^3.5"
-loguru = "^0.4.0"
+loguru = "^0.4"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.3"
