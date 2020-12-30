@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
+import re
 from pathlib import Path
 
 import pytest
-import re
 
 from commons_1c.platform_ import get_last_1c_exe_file_fullpath
 from commons_1c.version import get_version_as_number, get_version_as_parts
@@ -35,4 +35,4 @@ def test_get_last_1c_exe_file_fullpath_1():
 def test_get_last_1c_exe_file_fullpath_2() -> None:
     with pytest.raises(Exception) as e:
         get_last_1c_exe_file_fullpath(config_file='bla.cfg')
-        assert re.match(r'1CEStart.cfg file does not exist', e)
+        assert re.match(r'1CEStart.cfg file does not exist', str(e))
