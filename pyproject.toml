@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "commons-1c"
-version = "3.3.5"
+version = "3.3.6"
 description = "Commons for 1C:Enterprise"
 authors = ["Cujoko <cujoko@gmail.com>"]
 license = "MIT"
@@ -18,14 +18,14 @@ classifiers=[
 
 [tool.poetry.dependencies]
 python = "^3.9"
-appdirs = "^1.4"
-cjk-commons = "^3.5"
-loguru = "^0.5"
+appdirs = "*"
+cjk-commons = "*"
+loguru = "*"
 
 [tool.poetry.dev-dependencies]
-pylint = "^2.6"
-pytest = "^6.1"
-rope = "^0.18"
+pylint = "*"
+pytest = "*"
+rope = "*"
 
 [build-system]
 requires = ["poetry>=0.12"]
