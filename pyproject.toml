@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "commons-1c"
-version = "3.3.6"
+version = "3.4.0"
 description = "Commons for 1C:Enterprise"
 authors = ["Cujoko <cujoko@gmail.com>"]
 license = "MIT"
