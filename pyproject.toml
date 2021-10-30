@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "commons-1c"
-version = "3.5.0"
+version = "3.5.1"
 description = "Commons for 1C:Enterprise"
 authors = ["Cujoko <cujoko@gmail.com>"]
 license = "MIT"
 repository = "https://github.com/Cujoko/commons-1c"
 keywords = ["1c", "commons"]
 classifiers=[
-    "Development Status :: 4 - Beta",
+    "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Natural Language :: Russian",
@@ -18,7 +18,7 @@ classifiers=[
 ]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.9"
 appdirs = "*"
 cjk-commons = "*"
 loguru = "*"
