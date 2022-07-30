@@ -9,9 +9,9 @@ logger.disable(__name__)
 pattern_version = re.compile(r'\D*(?P<version>(?:(\d+)|)(?:\.(\d+)|)(?:\.(\d+)|)(?:\.(\d+)|))\D*')
 
 
-def get_version_as_number(version: str) -> int:
+def get_version_as_number(version: str, m: int = 10000) -> int:
     result = 0
-    m = 10000
+
     match = pattern_version.match(version)
     if match is not None:
         a = match.group(2)
@@ -23,6 +23,7 @@ def get_version_as_number(version: str) -> int:
         d = match.group(5)
         d = '0' if d is None else d
         result = int(a) * m ** 3 + int(b) * m ** 2 + int(c) * m + int(d)
+
     return result
 
 
