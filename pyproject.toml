@@ -22,7 +22,7 @@ version = "3.6.1"
 
 [tool.poetry.dependencies]
 appdirs = "^1.4.4"
-cjk-commons = "^3.6.1"
+cjk-commons = "^3.6.2"
 loguru = "^0.6.0"
 python = "^3.9"
 
