@@ -54,3 +54,7 @@ def get_last_1c_exe_file_fullpath(**kwargs) -> Path:
 
 def get_last_ibcmd_exe_file_fullpath(**kwargs) -> Path:
     return get_last_exe_file_fullpath('ibcmd.exe', **kwargs)
+
+
+def get_last_rac_exe_file_fullpath(**kwargs) -> Path:
+    return get_last_exe_file_fullpath('rac.exe', **kwargs)

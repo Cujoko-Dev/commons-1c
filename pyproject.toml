@@ -18,7 +18,7 @@ name = "commons-1c"
 packages = [{include = "commons_1c"}]
 readme = "README.md"
 repository = "https://github.com/Cujoko/commons-1c"
-version = "3.6.1"
+version = "3.6.2"
 
 [tool.poetry.dependencies]
 appdirs = "^1.4.4"
