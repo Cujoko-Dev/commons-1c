@@ -1,5 +1,3 @@
-[tool.pdm]
-
 [project]
 authors = [
     {name = "Cujoko", email = "cujoko@gmail.com"},
@@ -16,7 +14,7 @@ classifiers = [
 ]
 dependencies = [
     "appdirs==1.4.4",
-    "cjk-commons==3.6.3",
+    "cjk-commons>=3.6.3,<4.0.0",
     "loguru==0.6.0",
 ]
 description = "Commons for 1C:Enterprise"
@@ -25,4 +23,9 @@ license = {text = "MIT"}
 name = "commons-1c"
 readme = "README.md"
 requires-python = ">=3.10"
-version = "3.6.3"
+version = "3.6.4"
+
+[project.urls]
+repository = "https://github.com/Cujoko-Dev/commons-1c"
+
+[tool.pdm]
