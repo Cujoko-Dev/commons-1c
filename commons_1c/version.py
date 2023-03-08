@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
+import re
 from typing import List
 
 from loguru import logger
-import re
 
 logger.disable(__name__)
 
