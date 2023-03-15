@@ -25,20 +25,26 @@ def get_last_exe_file_fullpath(file_name: str, **kwargs) -> Path:
                 key_and_value = line.split('=')
                 if key_and_value[0] == 'InstalledLocation':
                     value = '='.join(key_and_value[1:])
-                    installed_location_fullpaths.append(Path(value.rstrip('\n')))
+                    installed_location_fullpaths.append(
+                        Path(value.rstrip('\n')))
 
         platform_versions = []
 
         for installed_location_fullpath in installed_location_fullpaths:
             if installed_location_fullpath.is_dir():
-                for version_dir_fullpath in installed_location_fullpath.rglob('*'):  # todo
-                    version_as_number = get_version_as_number(version_dir_fullpath.name)
+                # todo
+                for version_dir_fullpath in installed_location_fullpath.rglob('*'):
+                    version_as_number = get_version_as_number(
+                        version_dir_fullpath.name)
                     if version_as_number:
-                        exe_file_fullpath = Path(version_dir_fullpath, 'bin', file_name)
+                        exe_file_fullpath = Path(
+                            version_dir_fullpath, 'bin', file_name)
                         if exe_file_fullpath.is_file():
-                            platform_versions.append((version_as_number, exe_file_fullpath))
+                            platform_versions.append(
+                                (version_as_number, exe_file_fullpath))
 
-        platform_versions_reversed = sorted(platform_versions, key=lambda x: x[0], reverse=True)
+        platform_versions_reversed = sorted(
+            platform_versions, key=lambda x: x[0], reverse=True)
 
         if platform_versions_reversed:
             result = platform_versions_reversed[0][1]

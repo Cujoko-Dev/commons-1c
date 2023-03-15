@@ -29,7 +29,8 @@ def test_get_version_as_parts():
 def test_get_last_1c_exe_file_fullpath_1():
     file_fullpath = get_last_1c_exe_file_fullpath()
     assert isinstance(file_fullpath, Path)
-    assert re.match(r'(?i)c:\\Program Files \(x86\)\\1cv8\\\d+\.\d+\.\d+\.\d+\\bin\\1cv8\.exe', str(file_fullpath))
+    assert re.match(
+        r'(?i)c:\\Program Files \(x86\)\\1cv8\\\d+\.\d+\.\d+\.\d+\\bin\\1cv8\.exe', str(file_fullpath))
 
 
 def test_get_last_1c_exe_file_fullpath_2() -> None:
