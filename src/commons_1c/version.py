@@ -6,6 +6,7 @@ from loguru import logger
 
 logger.disable(__name__)
 
+
 pattern_version = re.compile(
     r"\D*(?P<version>(?:(\d+)|)(?:\.(\d+)|)(?:\.(\d+)|)(?:\.(\d+)|))\D*"
 )
@@ -57,5 +58,30 @@ def get_version_as_parts(version: str) -> List[str]:
 
         if d is not None:
             result.append(d)
+
+    return result
+
+
+def get_version_as_number_2(
+    version: str, m: int = 10000, ranks: int | None = None
+) -> int:
+    result = 0
+
+    try:
+        parts = [int(x) for x in version.split(".")]
+
+        if ranks is not None:
+            # Нужно дополнить нулями  # todo Улучшить комментарий
+            if len(parts) < ranks:
+                for i in range(ranks - len(parts)):
+                    parts.append(0)
+            elif len(parts) > ranks:
+                raise AttributeError("Ranks is Lesser Than Parts Number")  # todo
+
+        parts.reverse()
+
+        result = sum(x * (m**i) for i, x in enumerate(parts))
+    except ValueError:
+        pass
 
     return result
