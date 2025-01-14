@@ -65,7 +65,7 @@ def test_get_last_1c_exe_file_path_1():
 
 
 def test_get_last_1c_exe_file_path_2() -> None:
-    with pytest.raises(Exception) as e:
+    with pytest.raises(Exception) as exc:
         get_last_1c_exe_file_fullpath(config_file="bla.cfg")
 
         assert re.match(r"1CEStart.cfg file does not exist", str(e))

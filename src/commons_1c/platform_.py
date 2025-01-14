@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+
+"""Методы для работы с платформой 1С"""
+
+
 from pathlib import Path
 
 from appdirs import site_data_dir
