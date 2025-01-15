@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "C:\\Users\\Cujoko\\envs\\commons-1c\\Scripts\\python.exe",
+    "python.analysis.typeCheckingMode": "basic",
     "python.testing.pytestArgs": [
         "tests"
     ],
