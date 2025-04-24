@@ -1,5 +1,6 @@
 {
     "python.analysis.typeCheckingMode": "basic",
+    "python.defaultInterpreterPath": "E:\\Envs\\commons-1c\\Scripts\\python.exe",
     "python.testing.pytestArgs": [
         "tests"
     ],
