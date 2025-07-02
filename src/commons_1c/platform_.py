@@ -1,8 +1,3 @@
-# -*- coding: utf-8 -*-
-
-"""Методы для работы с платформой 1С"""
-
-
 from pathlib import Path
 
 from appdirs import site_data_dir
@@ -14,7 +9,7 @@ from commons_1c.version import get_version_as_number
 logger.disable(__name__)
 
 
-def get_last_exe_file_fullpath(file_name: str, **kwargs) -> Path:
+def get_last_exe_file_fullpath(file_name: str, **kwargs) -> Path | None:
     """Получить путь к exe-файлу из последней установленной платформы 1С
 
     Args:
@@ -71,13 +66,13 @@ def get_last_exe_file_fullpath(file_name: str, **kwargs) -> Path:
     return result
 
 
-def get_last_1c_exe_file_fullpath(**kwargs) -> Path:
+def get_last_1c_exe_file_fullpath(**kwargs) -> Path | None:
     return get_last_exe_file_fullpath("1cv8.exe", **kwargs)
 
 
-def get_last_ibcmd_exe_file_fullpath(**kwargs) -> Path:
+def get_last_ibcmd_exe_file_fullpath(**kwargs) -> Path | None:
     return get_last_exe_file_fullpath("ibcmd.exe", **kwargs)
 
 
-def get_last_rac_exe_file_fullpath(**kwargs) -> Path:
+def get_last_rac_exe_file_fullpath(**kwargs) -> Path | None:
     return get_last_exe_file_fullpath("rac.exe", **kwargs)

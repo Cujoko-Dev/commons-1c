@@ -1,8 +1,3 @@
-# -*- coding: utf-8 -*-
-
-"""Методы для работы с версиями"""
-
-
 import re
 from typing import List
 
