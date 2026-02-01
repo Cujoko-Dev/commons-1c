@@ -1,2 +1,1 @@
-Commons for 1C:Enterprise
-===
+# Commons for 1C:Enterprise
