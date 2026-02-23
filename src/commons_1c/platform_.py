@@ -68,11 +68,3 @@ def get_last_exe_file_fullpath(file_name: str, **kwargs) -> Path | None:
 
 def get_last_1c_exe_file_fullpath(**kwargs) -> Path | None:
     return get_last_exe_file_fullpath("1cv8.exe", **kwargs)
-
-
-def get_last_ibcmd_exe_file_fullpath(**kwargs) -> Path | None:
-    return get_last_exe_file_fullpath("ibcmd.exe", **kwargs)
-
-
-def get_last_rac_exe_file_fullpath(**kwargs) -> Path | None:
-    return get_last_exe_file_fullpath("rac.exe", **kwargs)
