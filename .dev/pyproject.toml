@@ -30,6 +30,9 @@ version = "0.1.0"
 [project.urls]
 repository = "https://github.com/Cujoko-Dev/commons-1c"
 
+[tool.pdm.build]
+package-dir = "../src"
+
 [tool.pdm.dev-dependencies]
 dev = [
     "-e file:///C:/Dev/Python/commons/.dev#egg=cjk-commons",
@@ -40,5 +43,5 @@ test = "pytest"
 
 [tool.pytest.ini_options]
 addopts = "-q"
-pythonpath = ["src"]
-testpaths = ["tests"]
+pythonpath = ["../src"]
+testpaths = ["../tests"]
