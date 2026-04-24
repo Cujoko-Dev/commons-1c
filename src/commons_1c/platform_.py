@@ -4,12 +4,14 @@ from appdirs import site_data_dir
 from cjk_commons.settings import get_path_attribute
 from loguru import logger
 
-from commons_1c.version import get_version_as_number
+from commons_1c.version import get_version_as_number, get_version_as_parts
 
 logger.disable(__name__)
 
 
-def get_last_exe_file_fullpath(file_name: str, **kwargs) -> Path | None:
+def get_last_exe_file_fullpath(
+    file_name: str, major_version: str | None = None, **kwargs
+) -> Path | None:
     """Получить путь к exe-файлу из последней установленной платформы 1С
 
     Args:
@@ -43,6 +45,9 @@ def get_last_exe_file_fullpath(file_name: str, **kwargs) -> Path | None:
                     installed_location_paths.append(Path(value.rstrip("\n")))
 
         platform_versions = []
+        major_version_parts = (
+            get_version_as_parts(major_version)[:2] if major_version else None
+        )
 
         for installed_location_path in installed_location_paths:
             if installed_location_path.is_dir():
@@ -50,6 +55,13 @@ def get_last_exe_file_fullpath(file_name: str, **kwargs) -> Path | None:
                 for version_dir_path in installed_location_path.rglob("*"):
                     version_as_number = get_version_as_number(version_dir_path.name)
                     if version_as_number:
+                        if major_version_parts:
+                            version_dir_parts = get_version_as_parts(
+                                version_dir_path.name
+                            )
+                            if version_dir_parts[:2] != major_version_parts:
+                                continue
+
                         exe_file_path = Path(version_dir_path, "bin", file_name)
                         if exe_file_path.is_file():
                             platform_versions.append((version_as_number, exe_file_path))
@@ -64,7 +76,3 @@ def get_last_exe_file_fullpath(file_name: str, **kwargs) -> Path | None:
         raise FileExistsError("1CEStart.cfg file does not exist")
 
     return result
-
-
-def get_last_1c_exe_file_fullpath(**kwargs) -> Path | None:
-    return get_last_exe_file_fullpath("1cv8.exe", **kwargs)

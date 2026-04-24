@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from commons_1c.platform_ import get_last_1c_exe_file_fullpath
+from commons_1c.platform_ import get_last_exe_file_fullpath
 from commons_1c.version import (
     get_version_as_number,
     get_version_as_number_2,
@@ -54,7 +54,7 @@ def test_get_version_as_number_2():
 
 
 def test_get_last_1c_exe_file_path_1():
-    file_path = get_last_1c_exe_file_fullpath()
+    file_path = get_last_exe_file_fullpath("1cv8.exe")
 
     assert isinstance(file_path, Path)
     assert re.match(
@@ -65,6 +65,6 @@ def test_get_last_1c_exe_file_path_1():
 
 def test_get_last_1c_exe_file_path_2() -> None:
     with pytest.raises(Exception) as exc:
-        get_last_1c_exe_file_fullpath(config_file="bla.cfg")
+        get_last_exe_file_fullpath("1cv8.exe", config_file="bla.cfg")
 
         assert re.match(r"1CEStart.cfg file does not exist", str(exc))
