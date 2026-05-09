@@ -27,7 +27,7 @@ license = {text = "MIT"}
 name = "commons-1c"
 readme = "README.md"
 requires-python = ">=3.10"
-version = "3.9.2"
+version = "3.9.3"
 
 [project.urls]
 repository = "https://github.com/Cujoko-Dev/commons-1c"
